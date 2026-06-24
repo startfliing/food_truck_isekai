@@ -1,13 +1,8 @@
 #include "tonc.h"
-#include "maxmod.h"
 
 #include "terminal.hpp"
 
 #include "image.h"
-#include "soundbank.h"
-#include "soundbank_bin.h"
-
-#define ENABLE_MUSIC false
 
 int main(){
     //enable Border BG
@@ -30,16 +25,7 @@ int main(){
 
     // Initialize Interrupts
     irq_init(nullptr);
-
-	// Maxmod requires the vblank interrupt to reset sound DMA. 
-	irq_set( II_VBLANK, mmVBlank, 0);
 	irq_enable(II_VBLANK);
-
-	// initialise maxmod with soundbank and 8 channels
-    if(ENABLE_MUSIC){
-        mmInitDefault( (mm_addr)soundbank_bin, 16 );
-        mmStart( MOD_FLATOUTLIES, MM_PLAY_ONCE );
-    }
 
     //Setup is done. Lets put it into action!
     Terminal::log("Hello World!");
@@ -49,9 +35,6 @@ int main(){
         if(key_hit(KEY_START)){
             Terminal::reset();
         }
-
-        //update song
-        mmFrame();
 
         //update random nunmber
         qran();
