@@ -35,7 +35,7 @@ class Terminal{
             while(*word != '\0'){
 
                 //'%%' will be used to display a char or int
-                if(*word == '%' && *word == '%'){
+                if(*word == '%' && *(word+1) == '%'){
                     //draw value
                     drawVal(val);
                     //move past '%%'
@@ -56,6 +56,7 @@ class Terminal{
     private:
         static void loadTile(char c, int vram_tile_ind);
         static void drawVal(int val);
+        static void drawVal(size_t val);
         static void drawVal(char c);
         static void drawVal(const char* string);
         static void clearTopRow();
