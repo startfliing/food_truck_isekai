@@ -1,0 +1,28 @@
+#include "tonc.h"
+
+#include "terminal.hpp"
+#include "postgame.hpp"
+#include "save.hpp"
+
+
+GameState ingameState(){
+    Terminal::log("ingame");
+
+    int timer = 60*10;
+    u8 aCount = 0;
+    while(timer > 0){
+        timer--;
+
+        if(key_hit(KEY_A)) aCount++;
+
+        key_poll();
+        VBlankIntrWait();
+    }
+    saveData temp = {aCount};
+    save(&temp, 1);
+    key_poll();
+    
+    // For now, loop back to itself
+    // Later you can transition to other states like: mainMenuState, playState, etc.
+    return (GameState)&postgameState;
+}
