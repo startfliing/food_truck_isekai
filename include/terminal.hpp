@@ -7,6 +7,7 @@
 
 class Terminal{
     public:
+        static u16 initTerminal();
         static u16 setCNT(u8 bg, u16 cbb, u16 sbb);
 
         static void reset();
