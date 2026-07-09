@@ -2,11 +2,15 @@
 
 #include "terminal.hpp"
 #include "ingame.hpp"
+#include "save.hpp"
 
 // Pregame state implementation
 // This state handles pre-game setup and returns the next state to run
 GameState pregameState(){
-    Terminal::log("pregame");
+
+    saveData* sd = getSaveData();
+    Terminal::log("sd->chars[0].name = %%", sd->chars[0].name);
+    Terminal::log("sd->chars[0].speed = %%", sd->chars[0].speed);
 
     while(!key_hit(KEY_ANY)){
         key_poll();

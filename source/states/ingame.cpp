@@ -18,8 +18,9 @@ GameState ingameState(){
         key_poll();
         VBlankIntrWait();
     }
-    saveData temp = {aCount};
-    save(&temp, 1);
+    saveData* sd = getSaveData();
+    sd->currWave = aCount;
+    save();
     key_poll();
     
     // For now, loop back to itself

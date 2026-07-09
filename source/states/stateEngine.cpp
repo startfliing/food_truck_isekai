@@ -1,5 +1,6 @@
 #include "pregame.hpp"
 #include "terminal.hpp"
+#include "save.hpp"
 
 #include "image.h"
 
@@ -31,6 +32,7 @@ int main(){
     irq_init(nullptr);
 	irq_enable(II_VBLANK);
 
+    load();
 
     // Initialize and run the state engine
     // Start with pregame state, then let each state return the next one

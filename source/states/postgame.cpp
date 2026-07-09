@@ -6,8 +6,8 @@
 
 GameState postgameState(){
 
-    saveData sd = load(1);
-    Terminal::log("You pressed A %% times!", sd.score);
+    saveData* sd = getSaveData();
+    Terminal::log("You pressed A %% times!", sd->currWave);
 
     while(!key_hit(KEY_B)){
         key_poll();
