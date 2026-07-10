@@ -1,4 +1,4 @@
-#include "pregame.hpp"
+#include "intro.hpp"
 #include "terminal.hpp"
 #include "save.hpp"
 
@@ -15,7 +15,7 @@ int main(){
 
     // Initialize and run the state engine
     // Start with pregame state, then let each state return the next one
-    GameState currentState = (GameState)pregameState;
+    GameState currentState = (GameState)introState;
     
     while(1){
         // Execute current state and get the next state
