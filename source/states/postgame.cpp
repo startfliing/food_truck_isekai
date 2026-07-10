@@ -1,5 +1,7 @@
-#include "tonc.h"
+// win state, pick new team member. randomly generated choice of 3
 
+//exit states: pregame, title??
+#include "postgame.hpp"
 #include "terminal.hpp"
 #include "pregame.hpp"
 #include "save.hpp"

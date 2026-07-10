@@ -1,5 +1,7 @@
-#include "tonc.h"
+// set roster
 
+//exit states: ingame, title?
+#include "pregame.hpp"
 #include "terminal.hpp"
 #include "ingame.hpp"
 #include "save.hpp"
@@ -9,8 +11,8 @@
 GameState pregameState(){
 
     saveData* sd = getSaveData();
+    Terminal::log("sd->currWave = %%", sd->currWave);
     Terminal::log("sd->chars[0].name = %%", sd->chars[0].name);
-    Terminal::log("sd->chars[0].speed = %%", sd->chars[0].speed);
 
     while(!key_hit(KEY_ANY)){
         key_poll();

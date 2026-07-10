@@ -1,5 +1,7 @@
-#include "tonc.h"
+// in game state, we gamin
 
+//exit states: postgame (win), title (lose)
+#include "ingame.hpp"
 #include "terminal.hpp"
 #include "postgame.hpp"
 #include "save.hpp"
